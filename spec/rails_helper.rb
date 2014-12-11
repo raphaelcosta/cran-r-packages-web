@@ -17,7 +17,6 @@ WebMock.disable_net_connect!
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
 end
