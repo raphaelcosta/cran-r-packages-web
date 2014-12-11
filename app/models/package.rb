@@ -1,5 +1,4 @@
 class Package < ActiveRecord::Base
-
   def self.create_from_repository(repo_package)
     p = Package.new
     p.name = repo_package.name

@@ -48,9 +48,11 @@ CranRepository::Package = Struct.new(:name, :version, :title, :description,
     extracted_package = Gem::Package::TarReader.new(
       Zlib::GzipReader.open(uri.open)
     )
-    extracted_package.seek("#{name}/#{DESCRIPTION_FILENAME}") do |f|
+    content = extracted_package.seek("#{name}/#{DESCRIPTION_FILENAME}") do |f|
       f.read
     end
+
+    content.force_encoding('iso-8859-1').encode('utf-8')
   end
 
   def parse_email_rfc(email_rfc)
