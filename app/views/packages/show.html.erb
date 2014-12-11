@@ -1,2 +1,13 @@
-<h1>Packages#show</h1>
-<p>Find me in app/views/packages/show.html.erb</p>
+<p>Name: <%= @package.name %></p>
+<p>Version: <%= @package.version %></p>
+<p>Title: <%= @package.title %></p>
+<p>Description: <%= @package.description %></p>
+<p>Date Publication: <%= @package.date_publication %></p>
+<p>Authors: <%= @package.authors.join(', ') %></p>
+<p>Maintainer email: <%= @package.maintainer_email %></p>
+<p>Maintainer name: <%= @package.maintainer_name %></p>
+
+<p>
+  <%= link_to 'Back to packages list', root_path %>
+</p>
+
