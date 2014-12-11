@@ -4,7 +4,7 @@ describe CranRepository::Package do
   describe '.list_all' do
     before do
       packages_contents = File.read('spec/fixtures/PACKAGES')
-      stub_request(:get, 'cran.r-project.org/src/contrib/PACKAGES').to_return(status: 200, body: packages_contents)
+      stub_request(:get, 'http://cran.r-project.org/src/contrib/PACKAGES').to_return(status: 200, body: packages_contents)
     end
 
     it 'must return array of packages' do

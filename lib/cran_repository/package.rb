@@ -21,6 +21,10 @@ CranRepository::Package = Struct.new(:name, :version, :title, :description,
   def maintainer_parsed
     parse_email_rfc(maintainer)
   end
+
+  def filename
+    "#{name}_#{version}.tar.gz"
+  end
   
   private
 
@@ -30,10 +34,6 @@ CranRepository::Package = Struct.new(:name, :version, :title, :description,
 
   def self.packages_list_uri
     URI.parse(CranRepository::BASE_URI + PACKAGES_FILENAME)
-  end
-
-  def filename
-    "#{name}_#{version}.tar.gz"
   end
 
   def uri
