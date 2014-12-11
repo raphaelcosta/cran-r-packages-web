@@ -23,6 +23,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use unicorn as the app server
 gem 'unicorn'
 
+# Parse Debian Control Files
+gem 'treetop-dcf', require: false
+
 group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring',        group: :development
@@ -34,4 +37,5 @@ group :test do
   gem 'simplecov', :require => false
   gem 'factory_girl'
   gem 'capybara'
+  gem 'webmock'
 end
