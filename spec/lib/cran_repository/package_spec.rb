@@ -47,4 +47,28 @@ describe CranRepository::Package do
       it { expect{ package.fetch_more_info }.to raise_error(OpenURI::HTTPError) }
     end
   end
+
+  describe '#maintainer_parsed' do
+    let(:package) { CranRepository::Package.new('package','1.0') }
+
+    context 'when format is correct' do
+      before do
+        package.maintainer = 'Raphael Costa <raphael@raphaelcosta.net>'
+      end
+
+      it 'must return hash with email and name' do
+        expect(package.maintainer_parsed).to eq({ name: 'Raphael Costa', email: 'raphael@raphaelcosta.net' })
+      end
+    end
+
+    context 'when format is not correct' do
+      before do
+        package.maintainer = 'Raphael Costa'
+      end
+
+      it 'must return hash only with name' do
+        expect(package.maintainer_parsed).to eq({ name: 'Raphael Costa', email: nil })
+      end
+    end
+  end
 end

@@ -54,7 +54,8 @@ CranRepository::Package = Struct.new(:name, :version, :title, :description,
   end
 
   def parse_email_rfc(email_rfc)
-    name, email = AUTHOR_REGEXP.match(email_rfc).captures
+    match = AUTHOR_REGEXP.match(email_rfc)
+    name, email = match.present? ? match.captures : [email_rfc,nil]
     { name: name, email: email }
   end
 end
