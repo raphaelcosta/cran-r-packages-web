@@ -24,6 +24,11 @@ describe CranRepository::Import do
         first_package = Package.first
         expect(first_package.name).to eq('A3')
         expect(first_package.title).to eq('A3: Accurate, Adaptable, and Accessible Error Metrics for Predictive Models')
+        expect(first_package.authors).to eq(['Scott Fortmann-Roe'])
+        expect(first_package.date_publication).to eq('2013-03-26 19:58:40')
+        expect(first_package.maintainer_email).to eq('scottfr@berkeley.edu')
+        expect(first_package.maintainer_name).to eq('Scott Fortmann-Roe')
+        expect(first_package.description).to eq('This package supplies tools for tabulating and analyzing the results of predictive models. The methods employed are applicable to virtually any predictive model and make comparisons between different methodologies straightforward.')
       end
     end
   end

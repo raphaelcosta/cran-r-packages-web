@@ -4,8 +4,9 @@ class Package < ActiveRecord::Base
     p = Package.new
     p.name = repo_package.name
     p.version = repo_package.version
-    p.date_publication = repo_package.date_publication
     p.title = repo_package.title
+    p.description = repo_package.description
+    p.date_publication = repo_package.date_publication
     p.authors = repo_package.authors
 
     maintainer_parsed = repo_package.maintainer_parsed
